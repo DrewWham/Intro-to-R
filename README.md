@@ -1,9 +1,9 @@
 # Intro-to-R
 
-## Languages, Software Libraries and Packages 
-### Base Languages
+## Getting Started 
+### Download
 * [R](https://www.r-project.org)
-
+* [RStudio](https://www.rstudio.com/products/RStudio/)
 ### Data Wrangling and Transformation
 * [datatables](https://github.com/Rdatatable/data.table/wiki/Getting-started)([cheetsheet](http://datacamp-community.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31))([cheetsheet2](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf))
 * [dplyr](http://dplyr.tidyverse.org)([cheetsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))
