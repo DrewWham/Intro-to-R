@@ -15,6 +15,7 @@ Download the data we will use in the workshop from the below link. The resulting
 
 ## Opening R, setting working directory, Base R, downloading & loading packages
 * [Base R - Cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
+* [R Studio - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 
 `setwd("~/Desktop/R_Workshop")`
 
@@ -38,6 +39,8 @@ Download the data we will use in the workshop from the below link. The resulting
 ### Data Wrangling with data.table
 
 ## Dates and Strings with lubridate and stringr
+* [lubridate](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
+* [stringr](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
 
 ## Data Visualization with ggplot2
-
+* [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
