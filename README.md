@@ -10,7 +10,7 @@ Follow the below links download and install the appropriate version of R and R S
 Download the workshop files by clicking the green "clone or download" button and then click "Download ZIP". Move the resulting folder to your desktop.
 
 ### 3)Download the workshop data
-Download the data we will use in the workshop from the below link. The resulting file should be a compressed "2008.csv.bz2" file. Uncompress the file and move the file into the R_Workshop folder on your desktop. Once it is uncompressed you should have a 689.4mb "2008.csv" file in that folder. 
+Download the data we will use in the workshop from the below link. The resulting file should be a compressed "2008.csv.bz2" file. Uncompress the file and move the file into the R_Workshop folder on your desktop. Once it is uncompressed you should have a 689.4mb file named "2008.csv" in R_Workshop folder. 
 * [2008 Flight Data](http://stat-computing.org/dataexpo/2009/2008.csv.bz2)
 
 
