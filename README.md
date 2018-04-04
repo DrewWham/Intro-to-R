@@ -15,17 +15,17 @@ Download the data we will use in the workshop from the below link. The resulting
 
 ## Opening R, setting working directory, downloading & loading packages
 
-'setwd("~/Desktop/R_Workshop")'
+`setwd("~/Desktop/R_Workshop")`
 
-'source("Workshop_Packages.R")'
+`source("Workshop_Packages.R")`
 
-'install.packages("data.table")'
+`install.packages("data.table")`
 
-'library(data.table)'
-
-'DT<-fread("2008.csv")'
+`library(data.table)`
 
 ## Data Structures,Loading Data, Indexing & Functions
+
+`DT<-fread("2008.csv")`
 
 ## Data Wrangling
 
