@@ -6,13 +6,13 @@ Follow the below links download and install the appropriate version of R and R S
 * [R](https://www.r-project.org)
 * [RStudio](https://www.rstudio.com/products/RStudio/)
 
-### 2)Download the workshop data
-Download the data we will use in the workshop from the below link. The resulting file should be a compressed "2008.csv.bz2" file. Create a new folder on your desktop called "R_Workshop" and unzip the file into that directory. Once it is uncompressed you should have a 689.4mb "2008.csv" file in that folder. 
+### 2)Download the files in this repository to your desktop 
+Download the workshop files by clicking the green "clone or download" button and then click "Download ZIP". Move the downloaded file to your desktop.
+
+### 3)Download the workshop data
+Download the data we will use in the workshop from the below link. The resulting file should be a compressed "2008.csv.bz2" file. Uncompress the file and move the file into the R_Workshop folder on your desktop. Once it is uncompressed you should have a 689.4mb "2008.csv" file in that folder. 
 * [2008 Flight Data](http://stat-computing.org/dataexpo/2009/2008.csv.bz2)
 
-### 3)Download the "Workshop_Packages.R" file from this repo
-Download the file linked below and put it into the "R_Workshop" folder you just created along with the data file. 
-* [Workshop_Packages.R](https://github.com/DrewWham/Intro-to-R/blob/master/Workshop_Packages.R)
 
 ### Data Wrangling and Transformation
 * [datatables](https://github.com/Rdatatable/data.table/wiki/Getting-started)([cheetsheet](http://datacamp-community.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31))([cheetsheet2](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf))
