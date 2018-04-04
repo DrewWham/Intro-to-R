@@ -1,15 +1,15 @@
 # Intro-to-R
 
 ## Before the workshop:  
-### -Download and install R and RStudio
+### 1)Download and install R and RStudio
 * [R](https://www.r-project.org)
 * [RStudio](https://www.rstudio.com/products/RStudio/)
 
-### -Download the workshop data 
+### 2)Download the workshop data 
 * [2008 Flight Data](http://stat-computing.org/dataexpo/2009/2008.csv.bz2)
 
-### -Download and run the "required.R" file from this repo
-
+### 3)Download the "Workshop_Packages.R" file from this repo
+* [Workshop_Packages.R](https://github.com/DrewWham/Intro-to-R/blob/master/Workshop_Packages.R)
 
 ### Data Wrangling and Transformation
 * [datatables](https://github.com/Rdatatable/data.table/wiki/Getting-started)([cheetsheet](http://datacamp-community.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31))([cheetsheet2](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf))
