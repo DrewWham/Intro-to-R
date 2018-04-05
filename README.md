@@ -39,8 +39,8 @@ Download the data we will use in the workshop from the below link. The resulting
 ### Data Wrangling with data.table
 
 ## Dates and Strings with lubridate and stringr
-* [lubridate](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
-* [stringr](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
+* [lubridate - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
+* [stringr - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
 
 ## Data Visualization with ggplot2
-* [ggplot2](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+* [ggplot2 - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
