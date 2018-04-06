@@ -25,7 +25,7 @@ The utility of R is in the hundereds of packages which offer thousands of pre-ma
 
 `install.packages("data.table")`
 
-Once packages are installed you will still need to load them inorder to use their functions; you can load them with the 'library()' function:
+Once packages are installed you will still need to load them in order to use their functions; you can load them with the 'library()' function:
 
 `library(data.table)`
 
