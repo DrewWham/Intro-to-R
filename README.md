@@ -35,6 +35,21 @@ This workshop will leverage functions from several packages, you can install and
 
 ## Data Structures,Loading Data, Indexing & Functions
 
+R has some basic data structures we will primarily use just two, vectors and data_tables
+
+`Vec <- 7' #this is a vector
+
+'num_Vec <- c(1,2.5,3,4.7)' #this is also a vector
+
+'Log_Vec <- c(TRUE,TRUE,FALSE,TRUE)' #this is a vector of logical statements
+
+'Chr_Vec <- c("This", "is a", "character", "vector")' #this is a character vector
+
+'DT1 <- data.table(numbers=num_Vec,logic=Log_Vec,character=Chr_Vec)' #DT1 is now a data.table
+
+'str(DT1)' #the str() function will tell you about the types of each column in a data.table
+
+
 `DT<-fread("2008.csv")`
 
 ## Data Wrangling
