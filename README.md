@@ -17,13 +17,21 @@ Download the data we will use in the workshop from the below link. The resulting
 * [Base R - Cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
 * [R Studio - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 
+R has a "working drectory" which is the folder where R will load data from and write files out to; You will need to set the working directory in the R GUI, the R-Studio GUI or by writing in the command line: 
+
 `setwd("~/Desktop/R_Workshop")`
 
-`source("Workshop_Packages.R")`
+The utility of R is in the hundereds of packages which offer thousands of pre-made functions. Packages will need to be installed; you can install them in the R GUI, the R-Studio GUI or by writing in the command line:
 
 `install.packages("data.table")`
 
+Once packages are installed you will still need to load them inorder to use their functions; you can load them with the 'library()' function:
+
 `library(data.table)`
+
+This workshop will leverage functions from several packages, you can install and load all of them with the following command:
+
+`source("Workshop_Packages.R")`
 
 ## Data Structures,Loading Data, Indexing & Functions
 
