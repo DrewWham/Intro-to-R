@@ -17,25 +17,25 @@ Download the data we will use in the workshop from the below link. The resulting
 * [Base R - Cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
 * [R Studio - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 
-R has a "working drectory" which is the folder where R will load data from and write files out to; You will need to set the working directory in the R GUI, the R-Studio GUI or by writing in the command line: 
+- R has a "working drectory" which is the folder where R will load data from and write files out to; You will need to set the working directory in the R GUI, the R-Studio GUI or by writing in the command line: 
 
 `setwd("~/Desktop/R_Workshop")`
 
-The utility of R is in the hundereds of packages which offer thousands of pre-made functions. Packages will need to be installed; you can install them in the R GUI, the R-Studio GUI or by writing in the command line:
+- The utility of R is in the hundereds of packages which offer thousands of pre-made functions. Packages will need to be installed; you can install them in the R GUI, the R-Studio GUI or by writing in the command line:
 
 `install.packages("data.table")`
 
-Once packages are installed you will still need to load them in order to use their functions; you can load them with the 'library()' function:
+- Once packages are installed you will still need to load them in order to use their functions; you can load them with the 'library()' function:
 
 `library(data.table)`
 
-This workshop will leverage functions from several packages, you can install and load all of them with the following command:
+- This workshop will leverage functions from several packages, you can install and load all of them with the following command:
 
 `source("Workshop_Packages.R")`
 
 ## Data Structures,Loading Data, Indexing & Functions
 
-R has some basic data structures we will primarily use just two, vectors and data_tables
+- R has some basic data structures we will primarily use just two, vectors and data_tables
 
 `Vec <- 7` #this is a vector
 
@@ -49,13 +49,13 @@ R has some basic data structures we will primarily use just two, vectors and dat
 
 `str(DT1)` #the str() function will tell you about the types of each column in a data.table
 
-Indexing allows you to retrieve values or subset a data_table
+- Indexing allows you to retrieve values or subset a data_table
 
 `DT1[1,]` #returns the first row, notice that this is a data_table 
 
-`DT1[,V2]` #returns the column names "V2", notice that this is a vector 
+`DT1[,V2]` #returns the column named "V2", notice that this is a vector 
 
-".csv" files are a common way to store data, we can load ".csv" files with the fread() function:
+- ".csv" files are a common way to store data, we can load ".csv" files with the fread() function:
 
 `DT<-fread("2008.csv")`
 
