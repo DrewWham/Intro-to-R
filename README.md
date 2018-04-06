@@ -45,10 +45,17 @@ R has some basic data structures we will primarily use just two, vectors and dat
 
 `Chr_Vec <- c("This", "is a", "character", "vector")` #this is a character vector
 
-`DT1 <- data.table(numbers=num_Vec,logic=Log_Vec,character=Chr_Vec)` #DT1 is now a data.table
+`DT1 <- data.table(V1=num_Vec,V2=Log_Vec,V3=Chr_Vec)` #DT1 is now a data.table
 
 `str(DT1)` #the str() function will tell you about the types of each column in a data.table
 
+Indexing allows you to retrieve values or subset a data_table
+
+`DT1[1,]` #returns the first row, notice that this is a data_table 
+
+`DT1[,V2]` #returns the column names "V2", notice that this is a vector 
+
+".csv" files are a common way to store data, we can load ".csv" files with the fread() function:
 
 `DT<-fread("2008.csv")`
 
