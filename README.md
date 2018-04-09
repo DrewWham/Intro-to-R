@@ -70,26 +70,32 @@ Download the data we will use in the workshop from the below link. The resulting
 
 `str(DT)` # we learned about data types above, this is a useful way to inspect a data object and see column types
 
-## Data Wrangling
+### Data Wrangling
 
-- Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
-
-`WashAP<-c('DCA','IAD','BWI')`
-`Wash_out<-DT[Origin %in% WashAP]`
-`Wash_in<-DT[Dest %in% WashAP]`
-
-`dim(Wash_out)`
-`dim(Wash_in)`
-
-`Wash_flights<-merge(Wash_in,Wash_out,all=T)`
-
-
-### Data Wrangling Package Cheetsheets
+## Data Wrangling Package Cheetsheets
 * [datatables](https://github.com/Rdatatable/data.table/wiki/Getting-started)([cheatsheet](http://datacamp-community.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31))([cheatsheet2](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf))
 * [dplyr](http://dplyr.tidyverse.org)([cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))
 * [reshape2](https://cran.r-project.org/web/packages/reshape2/reshape2.pdf)([cheatsheet](http://rstudio-pubs-static.s3.amazonaws.com/14391_c58a54d88eac4dfbb80d8e07bcf92194.html))
 
-### Data Wrangling with data.table
+- Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
+
+`WashAP<-c('DCA','IAD','BWI')`
+
+`WF<-DT[Origin %in% WashAP]`
+
+`dim(WF)`
+
+`WF<-WF[Cancelled==0]`
+
+`Avg_tab<-dcast(WF,Origin ~ UniqueCarrier,mean,value.var= c("DepDelay"))`
+
+`MPasAl<-c('AA','DL','UA','US')`
+
+`WFsub<-DT[UniqueCarrier %in% MPasAl]`
+
+
+
+
 
 ## Dates and Strings with lubridate and stringr
 * [lubridate - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
