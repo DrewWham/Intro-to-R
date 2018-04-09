@@ -59,6 +59,8 @@ Download the data we will use in the workshop from the below link. The resulting
 
 `DT<-fread("2008.csv")`
 
+`AP<-fread("airports.csv")`
+
 - We can now look at the data with some useful functions
 `dim(DT)` # the dim() function will show you the number of rows and the number of columns in a data_table
 
@@ -79,6 +81,18 @@ Download the data we will use in the workshop from the below link. The resulting
 
 - Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
 
+`AP<-AP[!iata_code==""]`
+
+`AP<-AP[,.(iata_code,name,latitude_deg,longitude_deg)]`
+
+`setnames(AP,"iata_code","Origin")`
+
+`setkey(DT,Origin)`
+
+`setkey(AP,Origin)`
+
+`DT<-merge(DT,AP,all.x=T)`
+
 `WashAP<-c('DCA','IAD','BWI')`
 
 `WF<-DT[Origin %in% WashAP]`
@@ -92,7 +106,6 @@ Download the data we will use in the workshop from the below link. The resulting
 `MPasAl<-c('AA','DL','UA','US')`
 
 `WFsub<-DT[UniqueCarrier %in% MPasAl]`
-
 
 
 
