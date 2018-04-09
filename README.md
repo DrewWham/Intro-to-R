@@ -108,7 +108,9 @@ Data Wrangling is the process of subsetting, reshaping, transforming and merging
 
 `WFsub$time <- as.POSIXct(strptime(WFsub$time, format="%H%M"))`
 
-`ggplot(WFsub,aes(x=time,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1)+geom_smooth()+coord_cartesian(ylim=c(0,30))+theme_minimal()`
+``
+
+`ggplot(WFsub,aes(x=time,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1)+geom_smooth()+coord_cartesian(ylim=c(0,30))+theme_minimal()+scale_x_datetime(date_breaks= "2 hours",date_labels ="%r")`
 
 
 ## Dates and Strings with lubridate and stringr
