@@ -59,7 +59,19 @@ Download the data we will use in the workshop from the below link. The resulting
 
 `DT<-fread("2008.csv")`
 
+- We can now look at the data with some useful functions
+
+`DT` # this is okay with a data_table but it is bad practice
+
+`head(DT)`
+
+`tail(DT)`
+
+`str(DT)` # we learned about data types above, this is a useful way to inspect a data object and see column types
+
 ## Data Wrangling
+
+- Data Wrangling is the process of reshaping, transforming and merging data. 
 
 ### Data Wrangling Package Cheetsheets
 * [datatables](https://github.com/Rdatatable/data.table/wiki/Getting-started)([cheatsheet](http://datacamp-community.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31))([cheatsheet2](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf))
