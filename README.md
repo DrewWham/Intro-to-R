@@ -17,25 +17,25 @@ Download the data we will use in the workshop from the below link. The resulting
 * [Base R - Cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
 * [R Studio - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
 
-- R has a "working drectory" which is the folder where R will load data from and write files out to; You will need to set the working directory in the R GUI, the R-Studio GUI or by writing in the command line: 
+R has a "working drectory" which is the folder where R will load data from and write files out to; You will need to set the working directory in the R GUI, the R-Studio GUI or by writing in the command line: 
 
 `setwd("~/Desktop/R_Workshop")`
 
-- The utility of R is in the hundereds of packages which offer thousands of pre-made functions. Packages will need to be installed; you can install them in the R GUI, the R-Studio GUI or by writing in the command line:
+The utility of R is in the hundereds of packages which offer thousands of pre-made functions. Packages will need to be installed; you can install them in the R GUI, the R-Studio GUI or by writing in the command line:
 
 `install.packages("data.table")`
 
-- Once packages are installed you will still need to load them in order to use their functions; you can load them with the 'library()' function:
+Once packages are installed you will still need to load them in order to use their functions; you can load them with the 'library()' function:
 
 `library(data.table)`
 
-- This workshop will leverage functions from several packages, you can install and load all of them with the following command:
+This workshop will leverage functions from several packages, you can install and load all of them with the following command:
 
 `source("Workshop_Packages.R")`
 
 ## Data Structures,Loading Data, Indexing & Functions
 
-- R has some basic data structures we will primarily use just two, vectors and data_tables
+R has some basic data structures we will primarily use just two, vectors and data_tables
 
 `Vec <- 7` #this is a vector
 
@@ -49,19 +49,20 @@ Download the data we will use in the workshop from the below link. The resulting
 
 `str(DT1)` #the str() function will tell you about the types of each column in a data.table
 
-- Indexing allows you to retrieve values or subset a data_table
+Indexing allows you to retrieve values or subset a data_table
 
 `DT1[1,]` #returns the first row, notice that this is a data_table 
 
 `DT1[,V2]` #returns the column named "V2", notice that this is a vector 
 
-- ".csv" files are a common way to store data, we can load ".csv" files with the fread() function:
+".csv" files are a common way to store data, we can load ".csv" files with the fread() function:
 
 `DT<-fread("2008.csv")`
 
 `AP<-fread("airports.csv")`
 
-- We can now look at the data with some useful functions
+We can now look at the data with some useful functions
+
 `dim(DT)` # the dim() function will show you the number of rows and the number of columns in a data_table
 
 `DT` # this is okay with a data_table but it is bad practice
@@ -79,11 +80,7 @@ Download the data we will use in the workshop from the below link. The resulting
 * [dplyr](http://dplyr.tidyverse.org)([cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))
 * [reshape2](https://cran.r-project.org/web/packages/reshape2/reshape2.pdf)([cheatsheet](http://rstudio-pubs-static.s3.amazonaws.com/14391_c58a54d88eac4dfbb80d8e07bcf92194.html))
 
-- Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
-
-`AP<-AP[!iata_code==""]`
-
-`AP<-AP[,.(iata_code,name,latitude_deg,longitude_deg)]`
+Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
 
 `setnames(AP,"iata_code","Origin")`
 
@@ -105,9 +102,13 @@ Download the data we will use in the workshop from the below link. The resulting
 
 `MPasAl<-c('AA','DL','UA','US')`
 
-`WFsub<-DT[UniqueCarrier %in% MPasAl]`
+`WFsub<-WF[UniqueCarrier %in% MPasAl]`
 
+`WFsub$time<-str_pad(WFsub$CRSDepTime,4,side="left",pad="0")`
 
+`WFsub$time <- as.POSIXct(strptime(WFsub$time, format="%H%M"))`
+
+`ggplot(WFsub,aes(x=time,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1)+geom_smooth()+coord_cartesian(ylim=c(0,30))+theme_minimal()`
 
 
 ## Dates and Strings with lubridate and stringr
