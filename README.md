@@ -60,6 +60,7 @@ Download the data we will use in the workshop from the below link. The resulting
 `DT<-fread("2008.csv")`
 
 - We can now look at the data with some useful functions
+`dim(DT)` # the dim() function will show you the number of rows and the number of columns in a data_table
 
 `DT` # this is okay with a data_table but it is bad practice
 
@@ -71,7 +72,17 @@ Download the data we will use in the workshop from the below link. The resulting
 
 ## Data Wrangling
 
-- Data Wrangling is the process of reshaping, transforming and merging data. 
+- Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
+
+`WashAP<-c('DCA','IAD','BWI')`
+`Wash_out<-DT[Origin %in% WashAP]`
+`Wash_in<-DT[Dest %in% WashAP]`
+
+`dim(Wash_out)`
+`dim(Wash_in)`
+
+`Wash_flights<-merge(Wash_in,Wash_out,all=T)`
+
 
 ### Data Wrangling Package Cheetsheets
 * [datatables](https://github.com/Rdatatable/data.table/wiki/Getting-started)([cheatsheet](http://datacamp-community.s3.amazonaws.com/6fdf799f-76ba-45b1-b8d8-39c4d4211c31))([cheatsheet2](https://s3.amazonaws.com/assets.datacamp.com/img/blog/data+table+cheat+sheet.pdf))
