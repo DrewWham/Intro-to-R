@@ -142,10 +142,16 @@ data assosiated with dates can be particularly tricky to deal with, the lubridat
 
 ggplot2 is the prefered package for data visualization in R
 
+It is often best to start with a relativly simple plot and work toward a more complicated but clearer plot iterativly
+`ggplot(WFsub,aes(x=TimeOnly,y=DepDelay,col=UniqueCarrier))+geom_point()+scale_x_datetime(date_breaks= "2 hours",date_labels ="%r")`
+
+We can remove the points and replace with a smooth plot and break the plot into facets by airport:
 `ggplot(WFsub,aes(x=TimeOnly,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1,scales = "free_x")+geom_smooth()+coord_cartesian(ylim=c(0,30))+theme_minimal()+scale_x_datetime(date_breaks= "2 hours",date_labels ="%r")`
 
+The ggsave function will save the plot as a ".pdf"
 `ggsave("WashAreaAirport_Delay_by_Hour.pdf")`
 
+We can also look at the trends across the year
 `ggplot(WFsub,aes(x=DepDateTime,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1,scales = "free_x")+geom_smooth()+coord_cartesian(ylim=c(-10,30))+theme_minimal()+scale_x_datetime(date_breaks= "1 month",date_labels ="%b")`
 
 `ggsave("WashAreaAirport_Delay_by_Month.pdf")`
