@@ -152,14 +152,14 @@ The ggsave function will save the plot as a ".pdf"
 `ggsave("WashAreaAirport_Delay_by_Hour.pdf")`
 
 <div align="center">
- <img src="https://raw.githubusercontent.com/DrewWham/R_Workshop/output/WashAreaAirport_Delay_by_Hour.png" width="710px">
+ <img src="https://raw.githubusercontent.com/DrewWham/R_Workshop/master/output/WashAreaAirport_Delay_by_Hour.png" width="710px">
 </div>
 
 We can also look at the trends across the year
 `ggplot(WFsub,aes(x=DepDateTime,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1,scales = "free_x")+geom_smooth()+coord_cartesian(ylim=c(-10,30))+theme_minimal()+scale_x_datetime(date_breaks= "1 month",date_labels ="%b")`
 
 <div align="center">
- <img src="https://raw.githubusercontent.com/DrewWham/R_Workshop/output/WashAreaAirport_Delay_by_Month.png" width="710px">
+ <img src="https://raw.githubusercontent.com/DrewWham/R_Workshop/master/output/WashAreaAirport_Delay_by_Month.png" width="710px">
 </div>
 
 `ggsave("WashAreaAirport_Delay_by_Month.pdf")`
