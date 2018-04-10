@@ -154,6 +154,7 @@ We can remove the points and replace with a smooth plot and break the plot into 
 `ggplot(WFsub,aes(x=TimeOnly,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1,scales = "free_x")+geom_smooth()+coord_cartesian(ylim=c(0,30))+theme_minimal()+scale_x_datetime(date_breaks= "2 hours",date_labels ="%r")`
 
 The ggsave function will save the plot as a ".pdf"
+
 `ggsave("WashAreaAirport_Delay_by_Hour.pdf")`
 
 <div align="center">
