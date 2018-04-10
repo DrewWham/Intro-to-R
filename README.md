@@ -104,9 +104,10 @@ Data Wrangling is the process of subsetting, reshaping, transforming and merging
 
 `WFsub<-WF[UniqueCarrier %in% MPasAl]`
 
-`WFsub$time<-str_pad(WFsub$CRSDepTime,4,side="left",pad="0")`
-
-`WFsub$time <- as.POSIXct(strptime(WFsub$time, format="%H%M"))`
+`WFsub$Month<-str_pad(WFsub$Month,2,side="left",pad="0")
+WFsub$DayofMonth<-str_pad(WFsub$DayofMonth,2,side="left",pad="0")
+WFsub$CRSDepTime<-str_pad(WFsub$CRSDepTime,4,side="left",pad="0")
+WFsub$DepDateTime <-paste0(WFsub$Month,WFsub$DayofMonth,WFsub$Year," ",WFsub$CRSDepTime)`
 
 ``
 
