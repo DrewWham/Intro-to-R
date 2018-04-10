@@ -57,21 +57,21 @@ Indexing allows you to retrieve values or subset a data_table
 
 ".csv" files are a common way to store data, we can load ".csv" files with the fread() function:
 
-`DT<-fread("2008.csv")`
+`DT<-fread("2008.csv")` #This reads in the flight data and stores it as an object called 'DT'
 
-`AP<-fread("airports.csv")`
+`AP<-fread("airports.csv")` #This reads in the data about airports and stores it as an object called 'AP'
 
 We can now look at the data with some useful functions
 
-`dim(DT)` # the dim() function will show you the number of rows and the number of columns in a data_table
+`dim(DT)` #the dim() function will show you the number of rows and the number of columns in a data_table
 
-`DT` # this is okay with a data_table but it is bad practice
+`DT` #this is okay with a data_table but it is bad practice
 
-`head(DT)`
+`head(DT)` #this is the preferred way to look at the top of an object
 
-`tail(DT)`
+`tail(DT)` #this is the preferred way to look at the bottom of an object
 
-`str(DT)` # we learned about data types above, this is a useful way to inspect a data object and see column types
+`str(DT)` #we learned about data types above, this is a useful way to inspect a data object and see column types
 
 ### Data Wrangling
 
@@ -80,53 +80,67 @@ We can now look at the data with some useful functions
 * [dplyr](http://dplyr.tidyverse.org)([cheatsheet](https://www.rstudio.com/wp-content/uploads/2015/02/data-wrangling-cheatsheet.pdf))
 * [reshape2](https://cran.r-project.org/web/packages/reshape2/reshape2.pdf)([cheatsheet](http://rstudio-pubs-static.s3.amazonaws.com/14391_c58a54d88eac4dfbb80d8e07bcf92194.html))
 
-Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by subsetting the large dataset to just the Washington DC area airports. 
+Data Wrangling is the process of subsetting, reshaping, transforming and merging data. Lets begin by merging the two data tables together. We'd like to merge using the Airport codes (a common value between datasets), but they are named "iata_code" in the Airports dataset and "Origin" and "Dest" in the Flights dataset. We will be focusing on departure delays in our analysis so we will be merging to "Origin".
 
-`setnames(AP,"iata_code","Origin")`
+`setnames(AP,"iata_code","Origin")` #this changes the name of the "iata_code" column to "Origin"
 
-`setkey(DT,Origin)`
+`setkey(DT,Origin)` #before merging we can re-order the datasets by what we want to merge on
 
-`setkey(AP,Origin)`
+`setkey(AP,Origin)` #this will match the order for both data frames, this will significantly speed up the merge 
 
-`DT<-merge(DT,AP,all.x=T)`
+`DT<-merge(DT,AP,all.x=T)` #Now we can merge, notice the "all.x=T" 
 
-`WashAP<-c('DCA','IAD','BWI')`
+Now we will subset the large dataset to just the Washington DC area airports.
 
-`WF<-DT[Origin %in% WashAP]`
+`WashAP<-c('DCA','IAD','BWI')` #we can make a vector
+
+`WF<-DT[Origin %in% WashAP]` #then using that vector to subset 
 
 `dim(WF)`
 
-`WF<-WF[Cancelled==0]`
+`WF<-WF[Cancelled==0]` #we can also use a logical statement
+
+Sometimes we will want to re-organise or summarize data, the dcast() function is useful for that
 
 `Avg_tab<-dcast(WF,Origin ~ UniqueCarrier,mean,value.var= c("DepDelay"))`
 
-`MPasAl<-c('AA','DL','UA','US')`
+`Avg_tab` #this is a useful way of looking at summary stats but notice that it is not 'tidy'
 
-`WFsub<-WF[UniqueCarrier %in% MPasAl]`
+Based on that view we can see that there are a number of carriers in the data set, many of them do not operate out of all three Washington area airports. Lets limit our analysis to just the four major passanger airlines.
+
+`MPasAl<-c('AA','DL','UA','US')` #making a vector
+
+`WFsub<-WF[UniqueCarrier %in% MPasAl]` #subsetting with a vector
 
 ## Strings with stringr
 
 * [stringr - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/strings.pdf)
 
-`WFsub$Month<-str_pad(WFsub$Month,2,side="left",pad="0")`
+Character or "string" vectors are a common data format, the 'stringr' package is desighned to help with string manipulation 
+
+`WFsub$Month<-str_pad(WFsub$Month,2,side="left",pad="0")` #we will use the str_pad() function to format our date columns
 
 `WFsub$DayofMonth<-str_pad(WFsub$DayofMonth,2,side="left",pad="0")`
 
 `WFsub$CRSDepTime<-str_pad(WFsub$CRSDepTime,4,side="left",pad="0")`
 
-`WFsub$DepDateTime <-paste0(WFsub$Month,WFsub$DayofMonth,WFsub$Year," ",WFsub$CRSDepTime)`
+`WFsub$DepDateTime <-paste0(WFsub$Month,WFsub$DayofMonth,WFsub$Year," ",WFsub$CRSDepTime)` #the paste0() function will concatenate columns
 
 ## Dates with lubridate
 
 * [lubridate - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/lubridate.pdf)
 
-`WFsub$DepDateTime <-parse_date_time(WFsub$DepDateTime,"%m%d%Y %H%M")`
+data assosiated with dates can be particularly tricky to deal with, the lubridate package is desighned to help with date related data formating and transformation
 
-`WFsub$TimeOnly <-parse_date_time(WFsub$CRSDepTime,"%H%M")`
+`WFsub$DepDateTime <-parse_date_time(WFsub$DepDateTime,"%m%d%Y %H%M")` #make a new column with both the date and the time
+
+`WFsub$TimeOnly <-parse_date_time(WFsub$CRSDepTime,"%H%M")` #make a new column with just the time
 
 ## Data Visualization with ggplot2
 
 * [ggplot2 - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/data-visualization-2.1.pdf)
+
+ggplot2 is the prefered package for data visualization in R
 
 `ggplot(WFsub,aes(x=TimeOnly,y=DepDelay,col=UniqueCarrier))+facet_wrap(~name,ncol= 1,scales = "free_x")+geom_smooth()+coord_cartesian(ylim=c(0,30))+theme_minimal()+scale_x_datetime(date_breaks= "2 hours",date_labels ="%r")`
 
