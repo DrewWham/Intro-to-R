@@ -1,6 +1,4 @@
 library(ggplot2)
-library(dplyr)
-library(reshape2)
 library(stringr)
 library(lubridate)
 library(data.table)
