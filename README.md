@@ -15,8 +15,8 @@ Download the data we will use in the workshop from the below link. The resulting
 
 or
 
-download.file(url="https://s3.amazonaws.com/stat.184.data/Flights/2008.csv",destfile='2008.csv', method='curl')
-download.file(url="https://s3.amazonaws.com/stat.184.data/Flights/airports.csv",destfile='airports.csv', method='curl')
+`download.file(url="https://s3.amazonaws.com/stat.184.data/Flights/2008.csv",destfile='2008.csv', method='curl')`
+`download.file(url="https://s3.amazonaws.com/stat.184.data/Flights/airports.csv",destfile='airports.csv', method='curl')`
 
 ## Opening R, setting working directory, Base R, downloading & loading packages
 * [Base R - Cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
