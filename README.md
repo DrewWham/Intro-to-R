@@ -13,6 +13,11 @@ Download the workshop files by clicking the green "clone or download" button and
 Download the data we will use in the workshop from the below link. The resulting file should be a compressed "2008.csv.bz2" file. Uncompress the file and move the file into the R_Workshop folder on your desktop. Once it is uncompressed you should have a 689.4mb file named "2008.csv" in R_Workshop folder. 
 * [2008 Flight Data](http://stat-computing.org/dataexpo/2009/2008.csv.bz2)
 
+or
+
+download.file(url="https://s3.amazonaws.com/stat.184.data/Flights/2008.csv",destfile='./Lectures/Data/Flights/2008.csv', method='curl')
+download.file(url="https://s3.amazonaws.com/stat.184.data/Flights/airports.csv",destfile='./Lectures/Data/Flights/airports.csv', method='curl')
+
 ## Opening R, setting working directory, Base R, downloading & loading packages
 * [Base R - Cheatsheet](http://github.com/rstudio/cheatsheets/raw/master/base-r.pdf)
 * [R Studio - Cheatsheet](https://github.com/rstudio/cheatsheets/raw/master/rstudio-ide.pdf)
